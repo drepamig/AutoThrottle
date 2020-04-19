@@ -112,14 +112,14 @@ void AutoThrottlePlugin::activateAutoThrottle()
 			break;
 		}
 	}
-	if (m_throttleAxisIndex < 0) {
-		XPLMDebugString("[Autothrottle] No unified throttle axis bound!\n");
-	} else {
-		int unbindAxis = 0;
-		XPLMSetDatavi(m_joyAxisAssignments, &unbindAxis, m_throttleAxisIndex, 1);
+	// if (m_throttleAxisIndex < 0) {
+	// 	XPLMDebugString("[Autothrottle] No unified throttle axis bound! " + m_throttleAxisIndex + "\n");
+	// } else {
+	// 	int unbindAxis = 0;
+	// 	XPLMSetDatavi(m_joyAxisAssignments, &unbindAxis, m_throttleAxisIndex, 1);
 		m_isEnabled = true;
 		XPLMScheduleFlightLoop(m_flightLoop, -1.0f, false);
-	}
+	// }
 }
 
 void AutoThrottlePlugin::deactivateAutoThrottle()
